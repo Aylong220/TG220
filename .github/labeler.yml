@@ -1,15 +1,5 @@
-'TGUI':
-  - 'tgui/**'
-
-'Звук':
-  - '**/*.ogg'
-
-'Спрайты':
-  - '**/*.dmi'
-  - '**/*.png'
-
-'Изменение Карты':
-  - '**/*.dmm'
+'Перевод':
+  - base-branch: 'translate'
 
 'НЕ МОДУЛЬНО':
   - all: ['code/**']
@@ -19,18 +9,26 @@
   - all: ['code/**', modular_bandastation/**]
   - base-branch: 'master220'
 
-'Перевод':
-  - base-branch: 'translate'
+'TGUI':
+  - all: ['tgui/**']
+
+'Звук':
+  - all: ['**/*.ogg']
+
+'Спрайты':
+  - all: ['**/*.dmi', '**/*.png']
+
+'Изменение Карты':
+ - all: ['**/*.dmm']
 
 'Инструменты':
-  - '.gihub/workflows/**'
-  - 'tools/**'
+  - all: ['.gihub/workflows/**', 'tools/**']
 
 'Изменение конфига':
-  - 'config/**'
+  - all: ['config/**']
 
 'Документация':
-  - '**/*.md'
+  - all: ['**/*.md']
 
 'SQL':
-  - 'SQL/**'
+  - all: ['SQL/**']
