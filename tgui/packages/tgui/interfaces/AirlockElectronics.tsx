@@ -48,7 +48,7 @@ export function AirLockMainSection(props) {
       <Stack.Item>
         <Section fill>
           <LabeledList>
-            <LabeledList.Item label="Integrated Circuit Shell">
+            <LabeledList.Item label="Integrated Лада Shell">
               <Button.Checkbox
                 checked={shell}
                 onClick={() => {
