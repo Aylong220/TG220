@@ -20,8 +20,7 @@
   - all: ['code/**', modular_bandastation/**]
 
 'Перевод':
-  - branches:
-    - 'translate'
+  - head-branch: ['translate']
 
 'Инструменты':
   - '.gihub/workflows/**'
