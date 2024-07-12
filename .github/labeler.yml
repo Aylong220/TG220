@@ -20,7 +20,7 @@
   - base-branch: 'master220'
 
 'Перевод':
-  - head-branch: ['^translate', 'translate']
+  - base-branch: 'translate'
 
 'Инструменты':
   - '.gihub/workflows/**'
