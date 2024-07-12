@@ -213,7 +213,7 @@ export class TguiSay extends Component<{}, State> {
 
     // If we're in binary, hide the thinking indicator
     if (prefix === ':b ') {
-      Byond.sendMessage('thinking', { visible: false });
+      Byond.sendMessage('notthinking', { visible: false });
     }
 
     this.channelIterator.set('Say');
