@@ -58,42 +58,36 @@
 /datum/browser/proc/add_content(ncontent)
 	content += ncontent
 
-/datum/browser/proc/get_header()
-	var/datum/asset/simple/namespaced/common/common_asset = get_asset_datum(/datum/asset/simple/namespaced/common)
+/// Generate our browser windows HTML
+/datum/browser/proc/get_content()
 	var/file
+	var/datum/asset/simple/namespaced/common/common_asset = get_asset_datum(/datum/asset/simple/namespaced/common)
 	head_content += "<link rel='stylesheet' type='text/css' href='[common_asset.get_url_mappings()["common.css"]]'>"
-	for (file in stylesheets)
+
+	for(file in stylesheets)
 		head_content += "<link rel='stylesheet' type='text/css' href='[SSassets.transport.get_asset_url(file)]'>"
 
-
-	for (file in scripts)
+	for(file in scripts)
 		head_content += "<script type='text/javascript' src='[SSassets.transport.get_asset_url(file)]'></script>"
 
-	return {"<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-	<head>
-		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
-		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-		[head_content]
-	</head>
-	<body scroll=auto>
-		<div class='uiWrapper'>
-			[title ? "<div class='uiTitleWrapper'><div class='uiTitle'><tt>[title]</tt></div></div>" : ""]
-			<div class='uiContent'>
-	"}
-//" This is here because else the rest of the file looks like a string in notepad++.
-/datum/browser/proc/get_footer()
 	return {"
-			</div>
-		</div>
-	</body>
-</html>"}
-
-/datum/browser/proc/get_content()
-	return {"
-	[get_header()]
-	[content]
-	[get_footer()]
+		<!DOCTYPE html>
+		<html>
+			<head>
+				<title>[window_id /* For tests only, remove later. */]</title>
+				<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+				<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+				[head_content]
+			</head>
+			<body>
+				<div class='uiWindow'>
+					[title ? "<div class='uiTitle'>[title]</div>" : ""]
+					<div class='uiContent'>
+						[content]
+					</div>
+				</div>
+			</body>
+		</html>
 	"}
 
 /datum/browser/proc/open(use_onclose = TRUE)
