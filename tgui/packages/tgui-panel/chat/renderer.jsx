@@ -76,6 +76,7 @@ const createMessageNode = () => {
 const createReconnectedNode = () => {
   const node = document.createElement('div');
   node.className = 'Chat__reconnected';
+  node.textContent = 'Reconnected';
   return node;
 };
 

@@ -46,24 +46,25 @@ $color-bg-section: base.$color-bg-section !default;
 }
 
 .Chat__reconnected {
+  display: flex;
   font-size: 0.85em;
-  text-align: center;
-  margin: 1em 0 2em;
+  margin: 1.33em 0;
+  color: colors.$red;
+
+  &:before,
+  &:after {
+    content: '';
+    flex: 1;
+    align-self: center;
+    border-bottom: math.div(1em, 6) solid colors.$red;
+  }
 
   &:before {
-    content: 'Reconnected';
-    display: inline-block;
-    border-radius: 1em;
-    padding: 0 0.7em;
-    color: colors.$red;
-    background-color: $color-bg-section;
+    margin-right: 0.5em;
   }
 
   &:after {
-    content: '';
-    display: block;
-    margin-top: -0.75em;
-    border-bottom: math.div(1em, 6) solid colors.$red;
+    margin-left: 0.5em;
   }
 }
 
