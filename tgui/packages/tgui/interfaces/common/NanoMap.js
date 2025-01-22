@@ -232,6 +232,7 @@ class NanoButton extends Component {
         bottom={ry + 'px'}
         left={rx + 'px'}
         tooltip={this.props.tooltip}
+        tooltipPosition={'left'}
       />
     );
   }
