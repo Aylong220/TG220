@@ -212,7 +212,7 @@ export const CameraMapSelector = (props) => {
 
   return (
     <Stack fill>
-      <Stack.Item style={{ overflow: 'hidden' }}>
+      <Stack.Item grow style={{ overflow: 'hidden' }}>
         <NanoMap onZoom={(v) => setZoom(v)} mapUrl={mapUrl}>
           {cameras
             .filter((cam) => cam.z === Number(selected_z_level))

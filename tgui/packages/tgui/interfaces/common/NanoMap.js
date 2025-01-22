@@ -132,7 +132,7 @@ export class NanoMap extends Component {
         <Stack.Item className="NanoMap__toolbar">
           <Section>
             <Stack>
-              <Stack.Item>
+              <Stack.Item grow>
                 <NanoMapZoomer zoom={zoom} onZoom={this.handleZoom} />
               </Stack.Item>
               <Stack.Item>
@@ -244,7 +244,6 @@ const NanoMapZSelector = (props, context) => {
     <Stack>
       <Stack.Item>
         <Button
-          pr={0.5}
           icon={'chevron-down'}
           tooltip={'Уровнем ниже'}
           tooltipPosition={'bottom-end'}
@@ -253,7 +252,6 @@ const NanoMapZSelector = (props, context) => {
       </Stack.Item>
       <Stack.Item>
         <Button
-          pr={0.5}
           icon={'chevron-up'}
           tooltip={'Уровнем выше'}
           tooltipPosition={'bottom-end'}
