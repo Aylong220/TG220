@@ -90,7 +90,7 @@ const selectCameras = (cameras: Camera[], searchText = ''): Camera[] => {
 
 export const CameraConsole220 = (props) => {
   return (
-    <Window width={1170} height={775}>
+    <Window width={1170} height={770}>
       <Window.Content>
         <CameraContent />
       </Window.Content>
@@ -246,51 +246,50 @@ const CameraControls = (props: { searchText: string; selectedTab: string }) => {
   const cameras = selectCameras(data.cameras, searchText);
 
   const [prevCamera, nextCamera] = prevNextCamera(cameras, activeCamera);
+  const camAlive = !!activeCamera?.status;
 
   return (
     <Section fill>
       <Stack fill vertical>
         <Stack.Item>
-          <Stack fill>
-            <Stack.Item grow>
-              {activeCamera?.status ? (
-                <NoticeBox info>{activeCamera.name}</NoticeBox>
-              ) : (
-                <NoticeBox danger>No input signal</NoticeBox>
-              )}
-            </Stack.Item>
-            <Stack.Item>
-              {!!can_spy && (
+          <NoticeBox m={0} color={camAlive ? 'blue' : 'red'}>
+            <Stack fill>
+              <Stack.Item grow align={'center'}>
+                {activeCamera?.status ? activeCamera.name : 'No input signal'}
+              </Stack.Item>
+              <Stack.Item>
+                {!!can_spy && (
+                  <Button
+                    icon={'magnifying-glass'}
+                    tooltip={'Track Person'}
+                    onClick={() => act('start_tracking')}
+                  />
+                )}
+              </Stack.Item>
+              <Stack.Item>
                 <Button
-                  icon="magnifying-glass"
-                  tooltip="Track Person"
-                  onClick={() => act('start_tracking')}
+                  icon={'chevron-left'}
+                  disabled={!prevCamera}
+                  onClick={() =>
+                    act('switch_camera', {
+                      camera: prevCamera,
+                    })
+                  }
                 />
-              )}
-            </Stack.Item>
-            <Stack.Item>
-              <Button
-                icon="chevron-left"
-                disabled={!prevCamera}
-                onClick={() =>
-                  act('switch_camera', {
-                    camera: prevCamera,
-                  })
-                }
-              />
-            </Stack.Item>
-            <Stack.Item>
-              <Button
-                icon="chevron-right"
-                disabled={!nextCamera}
-                onClick={() =>
-                  act('switch_camera', {
-                    camera: nextCamera,
-                  })
-                }
-              />
-            </Stack.Item>
-          </Stack>
+              </Stack.Item>
+              <Stack.Item>
+                <Button
+                  icon={'chevron-right'}
+                  disabled={!nextCamera}
+                  onClick={() =>
+                    act('switch_camera', {
+                      camera: nextCamera,
+                    })
+                  }
+                />
+              </Stack.Item>
+            </Stack>
+          </NoticeBox>
         </Stack.Item>
         <Stack.Item grow>
           <ByondUi

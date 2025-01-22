@@ -11,6 +11,14 @@ $background-color: rgba(0, 0, 0, 0.33) !default;
   z-index: 2;
 }
 
+.NanoMap__map {
+  overflow: hidden;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
 .NanoMap__marker {
   z-index: 10;
   padding: 0px;

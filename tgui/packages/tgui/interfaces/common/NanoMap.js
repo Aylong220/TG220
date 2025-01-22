@@ -109,14 +109,10 @@ export class NanoMap extends Component {
       height: mapSize,
       'margin-top': offsetY + 'px',
       'margin-left': offsetX + 'px',
-      overflow: 'hidden',
-      position: 'absolute',
-      'background-size': 'cover',
-      'background-repeat': 'no-repeat',
-      'text-align': 'center',
       cursor: dragging ? 'move' : 'auto',
     };
     const mapStyle = {
+      userSelect: 'none',
       width: '100%',
       height: '100%',
       position: 'absolute',
@@ -141,7 +137,11 @@ export class NanoMap extends Component {
             </Stack>
           </Section>
         </Stack.Item>
-        <Stack.Item style={newStyle} onMouseDown={this.handleDragStart}>
+        <Stack.Item
+          class={'NanoMap__map'}
+          style={newStyle}
+          onMouseDown={this.handleDragStart}
+        >
           <img src={resolveAsset(mapUrl)} style={mapStyle} />
           <div>{children}</div>
         </Stack.Item>
