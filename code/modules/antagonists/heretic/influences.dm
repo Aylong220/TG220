@@ -84,7 +84,7 @@
 
 /obj/effect/visible_heretic_influence/Initialize(mapload)
 	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(show_presence)), 30 SECONDS) // BANDASTATION EDIT - Original: 15 SECONDS
+	addtimer(CALLBACK(src, PROC_REF(show_presence)), 45 SECONDS) // BANDASTATION EDIT - Original: 15 SECONDS
 	AddComponent(/datum/component/fishing_spot, GLOB.preset_fish_sources[/datum/fish_source/dimensional_rift])
 
 	var/image/silicon_image = image('icons/effects/eldritch.dmi', src, null, OBJ_LAYER)
