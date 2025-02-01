@@ -33,7 +33,7 @@
 	icon = 'modular_bandastation/objects/icons/obj/effects/line.dmi'
 	icon_state = "line_corner"
 	layer = TURF_PLATING_DECAL_LAYER
-	alpha = 110
+	_blend_mode = BLEND_MULTIPLY
 
 /// Automatically generates all subtypes for a decal with the given path.
 #define LINE_DECAL_SUBTYPE_HELPER(path)\
